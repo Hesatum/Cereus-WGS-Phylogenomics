@@ -1,19 +1,17 @@
-O Mapa do Projeto (Estrutura de Diretórios)
-A primeira regra de ouro da filogenômica é a organização espacial. Trabalharemos com arquivos que pesam dezenas de gigabytes e geraremos centenas de milhares de arquivos intermediários.
+Este repositório contém o workflow completo de bioinformática utilizado na minha dissertação de Mestrado. O objetivo é reconstruir a história evolutiva do complexo de espécies Cereus utilizando dados de sequenciamento de genoma completo (WGS) e uma abordagem de coalescência multiespécies.
 
-Para mantermos a sanidade e a reprodutibilidade, todo o nosso fluxo de trabalho obedecerá a esta estrutura cronológica de pastas. Recomendamos que você crie esta arquitetura no seu servidor ou HD antes de rodar o primeiro script:
+🧬 Estrutura do Projeto
+A arquitetura de pastas segue o fluxo sequencial do processamento, garantindo que cada etapa gere inputs rastreáveis para a fase seguinte:
 
-Plaintext
-Cereus-WGS-Project/
-├── scripts/                 # Onde todos os nossos códigos (.sh, .py) vão morar
-├── reference_genome/        # O genoma de referência (FASTA) e a anotação (GFF3)
-├── 00_rawdata/              # Arquivos brutos vindos do sequenciador (.fastq.gz)
-├── 01_trimmed_data/         # Reads limpos após o controle de qualidade (fastp)
-├── 02_alignment_bam/        # Alinhamentos mapeados contra a referência (BWA)
-├── 03_variant_calling/      # Arquivos GVCF individuais de cada cacto (GATK)
-├── 04_joint_genotyping/     # O arquivo BCF final unificando todas as mutações
-├── 05_loci_extraction/      # Os genes pescados pelo nosso Virtual Spliceosome
-├── 06_alignments/           # Alinhamentos múltiplos brutos de cada gene (MAFFT)
-├── 07_trimmed_fasta/        # Alinhamentos polidos livres de ruído (TrimAl)
-└── 08_gene_trees/           # Árvores de genes individuais inferidas (IQ-TREE)
-(Dica: A numeração garante que a saída de uma pasta seja sempre a entrada exata da pasta seguinte).
+Bash
+.
+├── 00_rawdata/           # Dados brutos (FastQ)
+├── 01_trimmed_data/      # Reads filtradas e adaptadores removidos
+├── 02_alignment_bam/     # Mapeamento contra o genoma de referência
+├── 03_variant_calling/   # VCFs individuais (GVCF)
+├── 04_joint_genotyping/  # Genotipagem conjunta (VCF populacional)
+├── 05_loci_extraction/   # Extração de sequências via Virtual Spliceosome
+├── 06_alignments/        # Alinhamentos múltiplos (MSA) por locus
+├── 07_trimmed_fasta/     # Alinhamentos polidos
+├── 08_gene_trees/        # Árvores de genes individuais
+└── scripts/              # Scripts customizados e utilitários
