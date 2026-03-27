@@ -3,7 +3,6 @@ Este repositório contém o workflow completo de bioinformática utilizado na mi
 🧬 Estrutura do Projeto
 A arquitetura de pastas segue o fluxo sequencial do processamento, garantindo que cada etapa gere inputs rastreáveis para a fase seguinte:
 
-Bash
 .
 ├── 00_rawdata/           # Dados brutos (FastQ)
 ├── 01_trimmed_data/      # Reads filtradas e adaptadores removidos
