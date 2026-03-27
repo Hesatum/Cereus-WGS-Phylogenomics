@@ -1,8 +1,9 @@
 Este repositório contém o workflow completo de bioinformática utilizado na minha dissertação de Mestrado. O objetivo é reconstruir a história evolutiva do complexo de espécies Cereus utilizando dados de sequenciamento de genoma completo (WGS) e uma abordagem de coalescência multiespécies.
 
 🧬 Estrutura do Projeto
-A arquitetura de pastas segue o fluxo sequencial do processamento, garantindo que cada etapa gere inputs rastreáveis para a fase seguinte:
+A arquitetura de pastas segue o fluxo sequencial do processamento:
 
+```bash
 .
 ├── 00_rawdata/           # Dados brutos (FastQ)
 ├── 01_trimmed_data/      # Reads filtradas e adaptadores removidos
